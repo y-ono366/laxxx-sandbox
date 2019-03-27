@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>laxx</title>
+    <script src="node_modules/lax.js/lib/lax.min.js" ></script>
+</head>
+<script>
+    window.onload = function() {
+        lax.setup() // init
+
+        const updateLax = () => {
+            lax.update(window.scrollY)
+            window.requestAnimationFrame(updateLax)
+        }
+
+        window.requestAnimationFrame(updateLax)
+    }
+</script>
+<style>
+#header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  z-index: 2;
+  height: 1000px;
+}
+</style>
+<body>
+    <div id="header" class="section">
+        <h1 class="lax" data-lax-preset="spin fadeInOut">Look at me goooooo!</h1>
+    </div>
+</body>
+</html>
